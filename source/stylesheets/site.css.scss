@@ -1,0 +1,321 @@
+@import 'normalize';
+@charset 'utf-8';
+@import 'vendor/animate.css';
+@import 'vendor/ace';
+@import 'vendor/pui-variables';
+@import 'vendor/colors';
+@import 'vendor/shadows';
+@import 'vendor/element-ui.css';
+@import 'vendor/codemirror';
+
+
+.medium {
+  font-weight: 500;
+}
+
+.animated {
+  animation-duration: .2s;
+}
+
+.auto-width {
+  width: auto;
+}
+
+$light-gray: #fafafa;
+$blue: #0074D9;
+
+.light-gray {
+  color: $light-gray;
+}
+
+.bg-light-gray {
+  background: $light-gray;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f7f7f7;
+  font-family: 'Clear Sans', sans-serif;
+}
+
+.stage {
+  min-height: 500px;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.top-header {
+  background: #243640;
+}
+
+.service-icon {
+  height: 35px;
+  width: 35px;
+}
+
+.active {
+  background: #fff;
+  box-shadow: 2px 0 0 0 #fff;
+}
+
+.btn:focus {
+  border-color: inherit;
+  box-shadow: none;
+}
+
+.btn-info {
+  color: $neutral-6;
+  transition: color .2s ease-out;
+}
+
+.plan-tab.active .btn-info {
+  color: $brand-7;
+}
+
+.plan-tab {
+  border-color: $neutral-7;
+  opacity: .65;
+  transition: border .2s ease-out,
+              box-shadow .2s ease-out,
+              opacity .2s ease-out;
+
+  &:hover {
+    border-color: $neutral-4;
+    opacity: 1;
+  }
+
+  &.active {
+    @extend .box-shadow-2;
+    border-color: $brand-7;
+    opacity: 1;
+  }
+}
+
+.nav-tab {
+  i {
+    color: $neutral-3;
+    transition: color .2s ease-out;
+  }
+
+  &:hover i,
+  &.active i {
+    color: $brand-7;
+  }
+}
+
+.progress-bar {
+  height: 5px;
+}
+
+.product-logo {
+  height: 75px;
+  width: 75px;
+}
+
+.spinner {
+  &.light {
+    .inner, .outer {
+      fill: #fff;
+    }
+  }
+}
+
+.circle-num {
+  border: 1px solid $neutral-7;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.toast-success {
+  background-color: $brand-5 !important;
+}
+
+.avatar {
+  box-shadow: 0 0 0 2px $dark-3;
+  height: 40px;
+  width: 40px;
+}
+
+.mono {
+  font-family: 'Menlo', monospace;
+}
+
+.responsive-nav {
+  border: 0;
+
+  .is-active .el-collapse-item__header {
+    color: $brand-6;
+  }
+
+  .el-collapse-item__header {
+    @extend .flex;
+    @extend .items-center;
+    @extend .px2;
+    height: auto;
+    font-size: 1em;
+  }
+
+  .el-icon-arrow-right:before {
+    font-family: 'Material Icons';
+    content: 'chevron_right';
+  }
+
+  .el-collapse-item__content {
+    @extend .bg-light-gray;
+    padding: 0;
+  }
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.el-dialog__body {
+  font-size: inherit;
+}
+
+.el-table th,
+.el-table__fixed-header-wrapper thead div, .el-table__header-wrapper thead div {
+  background: $neutral-10;
+}
+
+.chart {
+  height: 220px;
+  font-family: 'Clear Sans';
+}
+
+
+.log-wrapper {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+.el-table__expanded-cell {
+  background: $neutral-10;
+  padding: 0;
+
+  &:hover {
+    background: $neutral-10 !important;
+  }
+}
+
+.chart-bar {
+  animation: barwidth .5s ease-in-out;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: width .2s ease-out;
+
+  &.bg-orange {
+    background: #f39c12;
+  }
+
+  &.bg-green {
+    background: #2ecc71;
+  }
+
+  &.bg-red {
+    background: #e74c3c;
+  }
+}
+
+@keyframes barwidth {
+  0% {
+    width: 0;
+  }
+}
+
+.chart-bg {
+  padding: 4px;
+}
+
+.sub-table {
+  th {
+    background: white !important;
+  }
+}
+
+.el-table--enable-row-hover tr:hover>td {
+  background: #fafafa;
+}
+
+.el-progress-bar__inner {
+  transition: width .2s ease-out;
+}
+
+.gradient-bg {
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#vm-graph {
+  .node:not(.leaf) circle {
+    fill: transparent;
+    stroke: rgba(255, 255, 255, .25);
+  }
+
+  .node:not(.leaf):first-of-type circle {
+    stroke: rgba(255, 255, 255, .25);
+  }
+
+  .leaf circle {
+    cursor: pointer;
+    fill: white;
+    stroke: transparent;
+    transition: all .2s ease-out;
+  }
+
+  .leaf.node {
+
+    &:not(.active) circle {
+      opacity: .55;
+    }
+
+    &.active circle {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .node circle.running {
+    fill: #1abc9c;
+
+    &:hover {
+      opacity: .75;
+    }
+  }
+
+  .node circle.failing {
+    fill: #D7241E;
+
+    &:hover {
+      opacity: .75;
+    }
+  }
+}
+
+text {
+  fill: white;
+  font: .8em "Clear Sans";
+  text-anchor: middle;
+}
+
+
+.drag-cursor {
+  cursor: move;
+}
+
+// #editor {
+//   height: 500px;
+// }
