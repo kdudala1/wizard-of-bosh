@@ -11,20 +11,13 @@ title: Bosh Viz
     <h3 class="regular m0">Visualization</h3>
     <el-button class="ml1 bold" @click="activeNames = ['1']" type="primary" size="small" v-if="activeNames.length == 0">Edit JSON</el-button>
   </div>
-  <div style="height: 450px;" class="col-12 border border-silver bg-neutral-10 flex flex-column items-center center justify-center py4" v-if="!visualizationLoaded">
+  <div class="col-12 border border-silver bg-neutral-10 flex flex-column items-center center justify-center py4 viz-wrapper" v-if="!visualizationLoaded">
     <h1 class="m0 type-neutral-6 col-10 sm-col-8 mx-auto">Enter JSON to get started</h1>
   </div>
-  <div class="border border-silver" v-if="visualizationLoaded">
+  <div class="border border-silver relative viz-wrapper" v-if="visualizationLoaded">
     <visualization></visualization>
-    <transition name="custom-transition"
-        enter-active-class="animated fadeInUp"
-        leave-active-class="animated fadeOutDown"
-        mode="in-out">
-      <div class="col-12 border-top border-silver bg-neutral-10 flex flex-column items-center center justify-center py4" v-if="visualizationLoaded && !detailShowing" style="height: 450px;">
-        <i class="material-icons type-neutral-6 h1">dashboard</i>
-        <h1 class="m0 type-neutral-6 col-10 sm-col-5 mx-auto">Click a node to see detailed information</h1>
-      </div>
-      <div class="col-12" v-if="detailShowing">
+    <transition name="fader" enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
+      <div class="detail-pane box-shadow-key-2" v-if="detailShowing">
         <vm-detail :vm="vm"></vm-detail>
       </div>
     </transition>

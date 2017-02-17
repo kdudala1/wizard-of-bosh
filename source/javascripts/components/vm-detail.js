@@ -1,6 +1,16 @@
 Vue.component('vm-detail', {
 	template: '#vm-detail',
 	props: ['vm'],
+  data: function() {
+    return {
+      activeTab: 'metrics'
+    }
+  },
+  methods: {
+    closeDetail: function() {
+      boshVue.closeDetail();
+    }
+  },
 	computed: {
 		sortedMetrics: function() {
       var filteredMetrics = _.filter(this.vm.metrics, function(metric) {

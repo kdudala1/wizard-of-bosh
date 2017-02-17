@@ -31,6 +31,12 @@ var boshVue = new Vue({
       this.vm = {};
       this.detailShowing = false;
     },
+    closeDetail: function() {
+      this.detailShowing = false;
+      var svg = d3.select("svg");
+      svg.selectAll(".leaf.node")
+        .classed('active', false);
+    },
     setData: function(data) {
       this.json = data;
     },
