@@ -61,7 +61,7 @@ var boshVue = new Vue({
         az: vm.details[2],
         ips: vm.details[3],
         cid: vm.details[4],
-        type: vm.details[5],
+        type: vm.details[7],
         metrics: [
           { label: 'CPU Total', value: getMetricFromString(vm.details[16]) },
           { label: 'CPU User', value: getMetricFromString(vm.details[17]) },
@@ -154,6 +154,30 @@ function pullProcesses(rows) {
   return processes;
 }
 
+function getSizeFromVmType(type) {
+  var size;
+
+  switch(type) {
+    case 't2.small':
+      size = 1;
+      break;
+    case 'm3.medium':
+      size = 2;
+      break;
+    case 'm3.large':
+      size = 3;
+      break;
+    case 'c3.large':
+      size = 5;
+      break;
+    case 'r3.xlarge':
+      size = 8;
+      break;
+  }
+
+  return size;
+}
+
 function transformBoshJson(json) {
   var parsedJson = JSON.parse(json);
   var d3Json = {
@@ -176,7 +200,7 @@ function transformBoshJson(json) {
           status: row[2],
           details: row,
           processes: rowProcesses,
-          size: 200
+          size: getSizeFromVmType(row[7])
         });
 
       }
