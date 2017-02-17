@@ -1,5 +1,5 @@
-@import 'normalize';
 @charset 'utf-8';
+@import 'normalize';
 @import 'vendor/animate.css';
 @import 'vendor/ace';
 @import 'vendor/pui-variables';
@@ -56,79 +56,7 @@ body {
   width: 35px;
 }
 
-.active {
-  background: #fff;
-  box-shadow: 2px 0 0 0 #fff;
-}
 
-.btn:focus {
-  border-color: inherit;
-  box-shadow: none;
-}
-
-.btn-info {
-  color: $neutral-6;
-  transition: color .2s ease-out;
-}
-
-.plan-tab.active .btn-info {
-  color: $brand-7;
-}
-
-.plan-tab {
-  border-color: $neutral-7;
-  opacity: .65;
-  transition: border .2s ease-out,
-              box-shadow .2s ease-out,
-              opacity .2s ease-out;
-
-  &:hover {
-    border-color: $neutral-4;
-    opacity: 1;
-  }
-
-  &.active {
-    @extend .box-shadow-2;
-    border-color: $brand-7;
-    opacity: 1;
-  }
-}
-
-.nav-tab {
-  i {
-    color: $neutral-3;
-    transition: color .2s ease-out;
-  }
-
-  &:hover i,
-  &.active i {
-    color: $brand-7;
-  }
-}
-
-.progress-bar {
-  height: 5px;
-}
-
-.product-logo {
-  height: 75px;
-  width: 75px;
-}
-
-.spinner {
-  &.light {
-    .inner, .outer {
-      fill: #fff;
-    }
-  }
-}
-
-.circle-num {
-  border: 1px solid $neutral-7;
-  border-radius: 50%;
-  height: 35px;
-  width: 35px;
-}
 
 table {
   border-collapse: collapse;
@@ -138,64 +66,13 @@ table {
   background-color: $brand-5 !important;
 }
 
-.avatar {
-  box-shadow: 0 0 0 2px $dark-3;
-  height: 40px;
-  width: 40px;
-}
-
-.mono {
-  font-family: 'Menlo', monospace;
-}
-
-.responsive-nav {
-  border: 0;
-
-  .is-active .el-collapse-item__header {
-    color: $brand-6;
-  }
-
-  .el-collapse-item__header {
-    @extend .flex;
-    @extend .items-center;
-    @extend .px2;
-    height: auto;
-    font-size: 1em;
-  }
-
-  .el-icon-arrow-right:before {
-    font-family: 'Material Icons';
-    content: 'chevron_right';
-  }
-
-  .el-collapse-item__content {
-    @extend .bg-light-gray;
-    padding: 0;
-  }
-}
-
 .cursor {
   cursor: pointer;
-}
-
-.el-dialog__body {
-  font-size: inherit;
 }
 
 .el-table th,
 .el-table__fixed-header-wrapper thead div, .el-table__header-wrapper thead div {
   background: $neutral-10;
-}
-
-.chart {
-  height: 220px;
-  font-family: 'Clear Sans';
-}
-
-
-.log-wrapper {
-  max-height: 350px;
-  overflow-y: scroll;
 }
 
 .el-table__expanded-cell {
@@ -205,38 +82,6 @@ table {
   &:hover {
     background: $neutral-10 !important;
   }
-}
-
-.chart-bar {
-  animation: barwidth .5s ease-in-out;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  transition: width .2s ease-out;
-
-  &.bg-orange {
-    background: #f39c12;
-  }
-
-  &.bg-green {
-    background: #2ecc71;
-  }
-
-  &.bg-red {
-    background: #e74c3c;
-  }
-}
-
-@keyframes barwidth {
-  0% {
-    width: 0;
-  }
-}
-
-.chart-bg {
-  padding: 4px;
 }
 
 .sub-table {
@@ -315,7 +160,3 @@ text {
 .drag-cursor {
   cursor: move;
 }
-
-// #editor {
-//   height: 500px;
-// }
