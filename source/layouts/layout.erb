@@ -6,6 +6,8 @@
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <title><%= current_page.data.title || "Bosh" %></title>
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.rawgit.com/resir014/Clear-Sans-Webfont/v1.0.1/css/clear-sans.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <%= stylesheet_link_tag :site %>
   </head>
@@ -21,5 +23,7 @@
     </div>
   </body>
   <%= partial 'templates/json-textarea' %>
+  <%= partial 'templates/visualization' %>
+  <%= partial 'templates/vm-detail' %>
   <%= javascript_include_tag :all %>
 </html>

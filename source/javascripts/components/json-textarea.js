@@ -7,17 +7,17 @@ var jsonTextarea = Vue.component('json-textarea', {
   },
   methods: {
     visualize: function() {
-      boshVue.setData('rawr');
+      boshVue.visualize();
     },
     useSample: function() {
       var self = this;
-      console.log(aja);
 
       aja()
         .url('/javascripts/cf-vitals.json')
         .on('success', function(data) {
-          self.editor.setValue(JSON.stringify(data, null, '\t'));
-          self.setParentData(data);
+          var stringified = JSON.stringify(data, null, '\t');
+          self.editor.setValue(stringified);
+          self.setParentData(stringified);
         })
         .go();
     },

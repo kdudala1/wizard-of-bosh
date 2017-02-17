@@ -1,0 +1,91 @@
+<template id="vm-detail">
+	<div>
+    <div class="flex bg-neutral-9">
+      <div class="col-6 m2 bg-white box-shadow-key-2">
+        <div class="p2">
+          <h3 class="mt0 mb0">VM Information</h3>
+          <h4 class="m0 regular mb2">{{ vm.name }}</h4>
+          <ul class="list-reset mb1">
+            <li>
+              <strong>AZ:</strong>
+              <span>{{ vm.az }}</span>
+            </li>
+            <li>
+              <strong>IPs:</strong>
+              <span>{{ vm.ips }}</span>
+            </li>
+            <li>
+              <strong>VM Type:</strong>
+              <span>{{ vm.type }}</span>
+            </li>
+            <li>
+              <strong>Instance ID:</strong>
+              <span>{{ vm.instance }}</span>
+            </li>
+            <li>
+              <strong>VM CID:</strong>
+              <span>{{ vm.cid }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-6 m2 bg-white box-shadow-key-2">
+        <div class="p2">
+          <h3 class="mt0 mb2">Resource Utilization</h3>
+          <div class="flex items-center justify-between mb1" v-for="metric in sortedMetrics">
+            <div class="col-3">
+              <h4 class="m0 regular">{{ metric.label }}</h4>
+            </div>
+            <div class="col-9 flex-auto pl2">
+              <el-progress :percentage="metric.value"></el-progress>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p2 bg-neutral-9" v-if="vm.processes !== undefined">
+      <el-table
+      height="250"
+      :data="vm.processes"
+      style="width: 100%">
+        <el-table-column
+          prop="process"
+          label="Process">
+          <template scope="scope">
+            <span v-if="scope.row.process.length > 0">
+              {{ scope.row.process }}
+            </span>
+            <span v-else>
+              N/A
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="processState"
+          label="State">
+          <template scope="scope">
+            <span class="type-brand-6" v-if="scope.row.processState == 'running'">
+              <i class="material-icons h6 mr1">brightness_1</i>
+               running
+             </span>
+             <span class="red" v-if="scope.row.processState == 'failing'">
+               <i class="material-icons h6 mr1">brightness_1</i>
+               failing
+             </span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="memory"
+          label="Memory Usage">
+          <template scope="scope">
+            <el-progress :percentage="scope.row.memory"></el-progress>
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="uptime"
+          label="Uptime">
+        </el-table-column>
+      </el-table>
+    </div>
+  </div>
+</template>
