@@ -206,9 +206,20 @@ function transformBoshJson(json) {
       }
     });
 
+    var grouped = _.groupBy(vms, 'name');
+    var split = [];
+    _.forIn(grouped, function(key, value) {
+      var obj = {};
+      var vmName = value;
+      var d3Obj = key;
+      obj.name = vmName;
+      obj.children = d3Obj;
+      split.push(obj);
+    });
+
     d3Json.children.push({
       name: 'depl',
-      children: vms
+      children: split
     });
   });
 
