@@ -17,6 +17,8 @@ var boshVue = new Vue({
     'json-textarea'
   ],
   data: {
+    isCollapsed: false,
+    activeNames: ['1'],
     json: '',
     vm: {},
     visualizationLoaded: false,
@@ -36,6 +38,8 @@ var boshVue = new Vue({
       return true;
     },
     visualize: function() {
+      this.activeNames = [];
+
       var self = this;
       if(this.visualizationLoaded) {
         this.clear();

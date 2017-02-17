@@ -1,30 +1,33 @@
 ---
 title: Bosh Viz
 ---
-<div class="sm-flex">
-  <div class="col-12 sm-col-4">
+<el-collapse v-model="activeNames">
+  <el-collapse-item title="JSON Editor" name="1" class="box-shadow-key-1">
     <json-textarea></json-textarea>
+  </el-collapse-item>
+</el-collapse>
+<div class="viz-col col-12 mt2">
+  <div class="flex items-center mb2">
+    <h3 class="regular m0">Visualization</h3>
+    <el-button class="ml1 bold" @click="activeNames = ['1']" type="primary" size="small" v-if="activeNames.length == 0">Edit JSON</el-button>
   </div>
-  <div class="col-12 sm-col-8 sm-pl3">
-    <h3 class="regular mt0">Visualization</h3>
-    <!-- v-if="visualizationLoaded" -->
-    <div style="height: 450px;" class="col-12 border border-silver bg-neutral-10 flex flex-column items-center center justify-center py4" v-if="!visualizationLoaded">
-      <h1 class="m0 type-neutral-6 col-10 sm-col-8 mx-auto">Paste JSON to get started</h1>
-    </div>
-    <div class="border border-silver" v-if="visualizationLoaded">
-      <visualization></visualization>
-      <transition name="custom-transition"
-          enter-active-class="animated fadeInUp"
-          leave-active-class="animated fadeOutDown"
-          mode="in-out">
-        <div class="col-12 border-top border-silver bg-neutral-10 flex flex-column items-center center justify-center py4" v-if="visualizationLoaded && !detailShowing">
-          <i class="material-icons type-neutral-6 h1">dashboard</i>
-          <h1 class="m0 type-neutral-6 col-10 sm-col-5 mx-auto">Click a node to see detailed information</h1>
-        </div>
-        <div class="col-12" v-if="detailShowing">
-          <vm-detail :vm="vm"></vm-detail>
-        </div>
-      </transition>
-    </div>
+  <div style="height: 450px;" class="col-12 border border-silver bg-neutral-10 flex flex-column items-center center justify-center py4" v-if="!visualizationLoaded">
+    <h1 class="m0 type-neutral-6 col-10 sm-col-8 mx-auto">Enter JSON to get started</h1>
+  </div>
+  <div class="border border-silver" v-if="visualizationLoaded">
+    <visualization></visualization>
+    <transition name="custom-transition"
+        enter-active-class="animated fadeInUp"
+        leave-active-class="animated fadeOutDown"
+        mode="in-out">
+      <div class="col-12 border-top border-silver bg-neutral-10 flex flex-column items-center center justify-center py4" v-if="visualizationLoaded && !detailShowing" style="height: 450px;">
+        <i class="material-icons type-neutral-6 h1">dashboard</i>
+        <h1 class="m0 type-neutral-6 col-10 sm-col-5 mx-auto">Click a node to see detailed information</h1>
+      </div>
+      <div class="col-12" v-if="detailShowing">
+        <vm-detail :vm="vm"></vm-detail>
+      </div>
+    </transition>
   </div>
 </div>
+
