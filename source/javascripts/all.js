@@ -7,6 +7,20 @@
 //= require vendor/javascript
 //= require components/json-textarea
 
-var boshviz = new Vue({
-  el: '#boshviz'
+var boshVue = new Vue({
+  el: '#boshviz',
+  components: [
+    'json-textarea'
+  ],
+  data: {
+    json: ''
+  },
+  methods: {
+    setData: function(data) {
+      this.json = data;
+    },
+    checkJsonLength: function() {
+      return true;
+    }
+  }
 });
