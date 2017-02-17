@@ -129,6 +129,8 @@ table {
 
     &.active circle {
       opacity: 1;
+      stroke: #fff;
+      stroke-width: 3px;
       transform: scale(1.1);
     }
   }
@@ -137,7 +139,7 @@ table {
     fill: #1abc9c;
 
     &:hover {
-      opacity: .75;
+      fill: darken(#1abc9c, 10%);
     }
   }
 

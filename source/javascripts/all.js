@@ -139,7 +139,7 @@ function buildD3(json) {
     });
 
     node.filter(function(d) { return !d.children; }).append("text")
-        .attr("dy", "0.3em")
+        .attr("dy", function(d) { return d.r + 15})
         .text(function(d) { return d.data.name.substring(0, d.r / 3); });
   })
 }
