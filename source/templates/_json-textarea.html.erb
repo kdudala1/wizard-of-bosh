@@ -5,7 +5,7 @@
   		<el-button size="small" icon="document" @click="useSample">Use Sample JSON</el-button>
   	</div>
   	<div id="editor" class="border border-silver mb2"></div>
-  	<el-button type="primary" size="large" class="col-12 bold" @click="visualize">
+  	<el-button :disabled="needsJson()" type="primary" size="large" class="col-12 bold" @click="visualize">
       Visualize!
     </el-button>
   </div>
