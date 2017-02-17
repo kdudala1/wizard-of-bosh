@@ -5,6 +5,7 @@
 //= require vendor/matchbrackets
 //= require vendor/closebrackets
 //= require vendor/javascript
+//= require vendor/aja.min
 //= require components/json-textarea
 
 var boshVue = new Vue({

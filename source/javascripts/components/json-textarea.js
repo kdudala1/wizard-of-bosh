@@ -1,7 +1,3 @@
-function loadCodeMirror() {
-
-}
-
 var jsonTextarea = Vue.component('json-textarea', {
   template: '#json-textarea',
   data: function() {
@@ -12,6 +8,18 @@ var jsonTextarea = Vue.component('json-textarea', {
   methods: {
     visualize: function() {
       boshVue.setData('rawr');
+    },
+    useSample: function() {
+      var self = this;
+      console.log(aja);
+
+      aja()
+        .url('/javascripts/cf-vitals.json')
+        .on('success', function(data) {
+          self.editor.setValue(JSON.stringify(data, null, '\t'));
+          self.setParentData(data);
+        })
+        .go();
     },
     setParentData: function(val) {
       boshVue.setData(val);
@@ -29,7 +37,9 @@ var jsonTextarea = Vue.component('json-textarea', {
       theme: 'eclipse'
     });
 
-    jsonEditor.on('changes', function() {
+    self.editor = jsonEditor;
+
+    self.editor.on('changes', function() {
       var val = jsonEditor.getValue();
       self.setParentData(val);
     });
