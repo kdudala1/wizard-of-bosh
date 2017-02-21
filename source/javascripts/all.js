@@ -57,7 +57,7 @@ var boshVue = new Vue({
       }
 
       catch(err) {
-        console.log(err);
+        console.warn(err);
         self.$message.error('Oops, we couldn\'t parse your JSON.');
       }
 
@@ -183,6 +183,8 @@ function getSizeFromVmType(type) {
     case 'r3.xlarge':
       size = 8;
       break;
+    default:
+      size = 10;
   }
 
   return size;
