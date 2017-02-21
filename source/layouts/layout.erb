@@ -14,12 +14,8 @@
 
   <body class="<%= page_classes %>">
     <%= partial 'shared/header' %>
-    <div class="p2" id="boshviz">
-      <div class="bg-white border border-silver">
-        <div class="p2 sm-p3">
-          <%= yield %>
-        </div>
-      </div>
+    <div class="stage flex flex-column" id="boshviz">
+      <%= yield %>
     </div>
   </body>
   <%= partial 'templates/json-textarea' %>
