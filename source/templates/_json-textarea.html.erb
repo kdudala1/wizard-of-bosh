@@ -1,7 +1,10 @@
 <template id="json-textarea">
   <div>
-  	<div class="flex items-center justify-between mb1">
-  		<h3 class="regular mt0">Bosh Instances JSON</h3>
+  	<div class="flex items-center justify-between mb2">
+  		<div>
+        <h3 class="regular mt0">Bosh Instances JSON</h3>
+        <code class="bg-light-gray border border-silver p1">$ bosh instances --ps --vitals --details --json</code>  
+      </div>
   		<el-button icon="document" @click="useSample">Use Sample JSON</el-button>
   	</div>
   	<div id="editor" class="border border-silver mb2"></div>

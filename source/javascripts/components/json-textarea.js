@@ -1,4 +1,4 @@
-var INITIAL_EDITOR_VALUE = '// $ bosh instances --ps --vitals --details --json';
+var INITIAL_EDITOR_VALUE = '';
 
 var jsonTextarea = Vue.component('json-textarea', {
   template: '#json-textarea',
