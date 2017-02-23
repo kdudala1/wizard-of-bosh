@@ -32,6 +32,7 @@ var boshVue = new Vue({
       this.detailShowing = false;
     },
     closeDetail: function() {
+      this.vm = {};
       this.detailShowing = false;
       var svg = d3.select("svg");
       svg.selectAll(".leaf.node")
@@ -130,6 +131,14 @@ function buildD3(json) {
     });
 
     d3.selectAll(".leaf.node circle").on("click", function (d) {
+      var clickedInstance = boshVue.vm.name + '/' + boshVue.vm.instance;
+      if(boshVue.detailShowing && d.data.details[0] == clickedInstance) {
+
+        setTimeout(function() {
+          boshVue.closeDetail();
+        })
+      }
+
       boshVue.show(d.data);
       var activeClass = "active";
       var alreadyIsActive = d3.select(this.parentNode).classed(activeClass);
